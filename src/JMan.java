@@ -7,7 +7,7 @@ public class JMan extends Piece {
     /** Constructor: a new J*Man at position (x, y) on Map m
      with color red if c = 0, green if c = 1, and yellow if c = 2. */
     public JMan(int x, int y, int c, Map m){
-        this(x, y, determineColor(c), m);
+        this(x, y, Piece.determineColor(c), m);
     }
     
     /** Constructor: a new J*Man at position (x, y) on Map m
@@ -15,8 +15,7 @@ public class JMan extends Piece {
      Color.RED, Color.GREEN, and Color.YELLOW.*/
     public JMan(int x, int y, Color c, Map m){
         super(Piece.JMAN, m);
-        super.setX(x);
-        super.setY(y);
+        super.setXY(x, y);
         super.setColor(c);
     }
     
@@ -32,30 +31,13 @@ public class JMan extends Piece {
         setActed(true);
         int x = super.getX();
         int y = super.getY();
-        
-        if(i == 0)
-    		super.setY(y + 1);
-    	else if(i == 1)
-    		super.setY(y - 1);
-    	else if(i == 2)
-    		super.setX(x - 1);
-    	else if(i == 3)
-    		super.setX(x + 1);
+        int[] newXY = moveAccordingToDirection(i);     
+        move(x, y, newXY[0], newXY[1]);
     }
     
     /** = representation of this piece */
     public String toString() {
-        String color= "";
         return getColorWord() + " J*Man at (" + getX() + ", " + getY() + ")";
-    }
-    
-    private static Color determineColor(int c) {
-    	if(c == 0)
-    		return Color.RED;
-    	else if(c == 1)
-    		return Color.GREEN;
-    	else 
-    		return Color.YELLOW;	
-	}
+    }  
 
 }

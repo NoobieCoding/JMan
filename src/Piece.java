@@ -50,13 +50,13 @@ public abstract class Piece {
 	public String getColorWord() {
 		if (color.equals(Color.RED))
 			return "Red";
-		else if(color.equals(Color.GREEN))
+		else if (color.equals(Color.GREEN))
 			return "Green";
-		else if(color.equals(Color.YELLOW))
+		else if (color.equals(Color.YELLOW))
 			return "Yellow";
-		else if(color.equals(Color.WHITE))
+		else if (color.equals(Color.WHITE))
 			return "White";
-		
+
 		return "";
 	}
 
@@ -106,5 +106,42 @@ public abstract class Piece {
 	public static int rand(int lo, int hi) {
 		return (int) (Math.random() * (hi - lo + 1)) + lo;
 	}
+	
+	public static Color determineColor(int c) {
+		if (c == 0)
+			return Color.RED;
+		else if (c == 1)
+			return Color.GREEN;
+		else
+			return Color.YELLOW;
+	}
 
+	public void setXY(int x, int y) {
+		setX(x);
+		setY(y);
+	}
+	public void move(int x, int y, int newX, int newY) {
+		if (map.isInGrid(newX, newY)) {
+			if (map.isEmpty(newX, newY)) {
+				map.move(x, y, newX, newY);
+				setX(newX);
+				setY(newY);
+			}
+		}
+	}
+
+	public int[] moveAccordingToDirection(int moveDirection) {
+		int newY = y;
+		int newX = x;
+		if (moveDirection == 0)
+			newY = y - 1;
+		else if (moveDirection == 1)
+			newY = y + 1;
+		else if (moveDirection == 2)
+			newX = x - 1;
+		else if (moveDirection == 3)
+			newX = x + 1;
+		int[] returnValues = { newX, newY };
+		return returnValues;
+	}
 }
