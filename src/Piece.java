@@ -1,6 +1,10 @@
 import java.awt.*;
 
-/** An instance is a piece for use in the J*Man!! assignment 2. */
+/**
+ * An instance is a piece for use in the J*Man!!
+ * 
+ * @author Nuttapong Rojanavanich (based on Cornell university code)
+ */
 public abstract class Piece {
 	/** Constants that identify the kind of a piece. */
 	public static final int BLOCK = 0; // piece is a block
@@ -94,8 +98,7 @@ public abstract class Piece {
 	}
 
 	/**
-	 * Make this piece take one action. What a piece does on its action is
-	 * defined in the assignment.
+	 * Make this piece take one action.
 	 */
 	public abstract void act();
 
@@ -106,7 +109,14 @@ public abstract class Piece {
 	public static int rand(int lo, int hi) {
 		return (int) (Math.random() * (hi - lo + 1)) + lo;
 	}
-	
+
+	/**
+	 * Determine the color from integer condition: c = 0, color = red, c = 1,
+	 * color = green, c = 2, color = yellow.
+	 * 
+	 * @param c is a integer that represents specific color.
+	 * @return Color (has Color as a data type).
+	 */
 	public static Color determineColor(int c) {
 		if (c == 0)
 			return Color.RED;
@@ -116,20 +126,25 @@ public abstract class Piece {
 			return Color.YELLOW;
 	}
 
+	/**
+	 * Set this piece's x and y location
+	 * 
+	 * @param x is the x location to be set.
+	 * @param y is the y location to be set.
+	 */
 	public void setXY(int x, int y) {
 		setX(x);
 		setY(y);
 	}
-	public void move(int x, int y, int newX, int newY) {
-		if (map.isInGrid(newX, newY)) {
-			if (map.isEmpty(newX, newY)) {
-				map.move(x, y, newX, newY);
-				setX(newX);
-				setY(newY);
-			}
-		}
-	}
 
+	/**
+	 * Determine the direction to move from specific integer: moveDirection = 0,
+	 * move up, moveDirection = 1, move down, moveDirection = 2, move left,
+	 * moveDirection = 3, move right,
+	 * 
+	 * @param moveDirection is a specific integer for each direction to move.
+	 * @return New x and y location.
+	 */
 	public int[] moveAccordingToDirection(int moveDirection) {
 		int newY = y;
 		int newX = x;

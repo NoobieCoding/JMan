@@ -2,6 +2,16 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * JMan game, user must eat all walkers and pillars in order to win.
+ * User can click at the buttons to move the JMan.
+ * User can press a new game button to start a new game.
+ * JMan can eat on red pieces if he is green, yellow pieces if he is red, and green pieces if he is yellow.
+ * After JMan eat the piece, his color will become the color of that piece.
+ * 
+ * @author Cornell university (edited by Nuttapong Rojanavanich)
+ *
+ */
 public class Map implements ActionListener {
 	// Window for game with graphics and buttons.
 	public JFrame frame = new JFrame("J*Man!!!"); // The GUI window
@@ -171,16 +181,14 @@ public class Map implements ActionListener {
 			if (typ == Piece.JMAN) {
 				jMan = new JMan(x, y, Piece.rand(0, 2), this);
 				grid[x][y] = jMan;
-			} else if (typ == Piece.BLOCK) {
-				Block block = new Block(x, y, Color.WHITE, this);
-				grid[x][y] = block;
-			} else if (typ == Piece.WALKER) {
-				Walker walker = new Walker(x, y, Piece.rand(0, 2), this);
-				grid[x][y] = walker;
-			} else if (typ == Piece.PILLAR) {
-				Pillar pillar = new Pillar(x, y, Piece.rand(0, 2), this);
-				grid[x][y] = pillar;
-			}
+			} 
+			else if (typ == Piece.BLOCK)
+				grid[x][y] = new Block(x, y, Color.WHITE, this);
+			else if (typ == Piece.WALKER)
+				grid[x][y] = new Walker(x, y, Piece.rand(0, 2), this);
+			else if (typ == Piece.PILLAR)
+				grid[x][y] = new Pillar(x, y, Piece.rand(0, 2), this);
+
 		}
 	}
 
@@ -208,7 +216,7 @@ public class Map implements ActionListener {
 	/**
 	 * Move the Piece at (fromX, fromY) to (toX, toY) on the grid, changing the
 	 * position at (fromX, fromY) to null; change the position in the Piece
-	 * accordingly. The piece originall in (toX, toY) is permanently deleted.
+	 * accordingly. The piece originally in (toX, toY) is permanently deleted.
 	 * Precondition: 1. (toX, toY) is inside the grid. 2. The move is allowed by
 	 * the game.
 	 */
