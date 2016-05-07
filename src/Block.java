@@ -24,7 +24,7 @@ public class Block extends Piece {
 	 * Constructor that receive color as a Color object.
 	 * 
 	 * @param x is a x location of this block.
-	 * @param y a y location of this block.
+	 * @param y is a y location of this block.
 	 * @param c is a color of this block(Color).
 	 * @param m is a map of the game.
 	 */

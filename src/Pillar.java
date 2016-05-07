@@ -25,7 +25,7 @@ public class Pillar extends Piece {
 	 * Constructor that receive color as a Color object.
 	 * 
 	 * @param x is a x location of this pillar.
-	 * @param y a y location of this pillar.
+	 * @param y is a y location of this pillar.
 	 * @param c is a color of this pillar(Color).
 	 * @param m is a map of the game.
 	 */
