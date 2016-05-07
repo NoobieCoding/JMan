@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 /**
- * Piece that JMan can not  eat (capture). is always stay still.
+ * Piece that JMan can not  eat (capture), always stay still.
  * 
  * @author Nuttapong Rojanavanich
  */
@@ -21,7 +21,7 @@ public class Block extends Piece {
 	}
 
 	/**
-	 * Constructor that receive color as an Color object.
+	 * Constructor that receive color as a Color object.
 	 * 
 	 * @param x is a x location of this block.
 	 * @param y a y location of this block.

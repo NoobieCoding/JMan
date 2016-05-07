@@ -22,7 +22,7 @@ public class Walker extends Piece {
 	}
 
 	/**
-	 * Constructor that receive color as an Color object.
+	 * Constructor that receive color as a Color object.
 	 * 
 	 * @param x is a x location of this walker.
 	 * @param y a y location of this walker.

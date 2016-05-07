@@ -1,8 +1,8 @@
 import java.awt.Color;
 
 /**
- * Piece that JMan must eat (capture). Has a chance to change color (red, green
- * or yellow).
+ * Piece that JMan must eat (capture). 
+ * Has a chance to change color (red, green or yellow).
  * 
  * @author Nuttapong Rojanavanich
  */
@@ -22,7 +22,7 @@ public class Pillar extends Piece {
 	}
 	
 	/**
-	 * Constructor that receive color as an Color object.
+	 * Constructor that receive color as a Color object.
 	 * 
 	 * @param x is a x location of this pillar.
 	 * @param y a y location of this pillar.
